@@ -17,21 +17,22 @@ const jwtSignUser = (user: any) => {
 export = {
   async register(req: Request, res: Response) {
     try {
-      const { email, password, username, location } = req.body
-      const user = await User.findOne({ email })
+      const { email, password, username } = req.body
+      const emailResult = await User.findOne({ email })
+      const usernameResult = await User.findOne({ username })
 
-      if (user) {
+      if (emailResult) {
         return res.status(418).send({ error: 'The email is already in use' })
+      }
+      if (usernameResult) {
+        return res.status(400).send({ error: 'The username is already in use' })
       }
 
       const newUser = new User()
       newUser.email = email
       newUser.password = await newUser.hashPassword(password)
       newUser.username = username
-      newUser.location = location
       newUser.save()
-
-      console.log(newUser)
 
       const token = await jwtSignUser(newUser)
 
@@ -66,7 +67,7 @@ export = {
         },
         token,
       })
-    } catch (err) {
+    } catch (error) {
       res.status(401).send({ error: 'Please try again' })
     }
   },

@@ -32,16 +32,17 @@ npm run dev
 - ~~create express server~~
 - ~~create User model with email, password, clientId, location~~
 - ~~create auth routes to catch data~~
-- create vuejs project
-- create basic views, components and routes
-- create navbar 
-- create api service
-- create register form and sent credentials to server
-- create login form and sent credentials to server
-- handle register request on the server
-- handle login request on the server
-- setup production and deployment
-- deploy server and client to test
+- ~~create vuejs project~~
+- ~~create basic views, components and routes~~
+- ~~create navbar~~
+- ~~create api service~~
+- ~~create register form and sent credentials to server~~
+- ~~create login form and sent credentials to server~~
+- ~~handle register request on the server~~
+- ~~handle login request on the server~~
+- ~~handle validation~~
+- ~~setup production and deployment~~
+- ~~deploy server and client to test~~
 - create game server
 - create GameRoom and register it with custom options town, forest and fields
 - create game component

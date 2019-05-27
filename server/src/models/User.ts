@@ -5,6 +5,7 @@ interface UserInterface extends Document {
   email: string
   password: string
   username: string
+  clientId: string
   location: string
   date: Date
   hashPassword: any
@@ -26,9 +27,14 @@ const UserSchema = new Schema({
     unique: true,
     required: true,
   },
+  clientId: {
+    type: String,
+    unique: true,
+  },
   location: {
     type: String,
     required: true,
+    default: 'town',
   },
   date: {
     type: Date,
@@ -38,11 +44,11 @@ const UserSchema = new Schema({
 
 const User = mongoose.model<UserInterface>('User', UserSchema)
 
-User.prototype.hashPassword = (password: string): string => {
+User.prototype.hashPassword = function(password: string): string {
   return bcrypt.hashSync(password, 10)
 }
 
-User.prototype.comparePassword = (password: string): boolean => {
+User.prototype.comparePassword = function(password: string): boolean {
   return bcrypt.compareSync(password, this.password)
 }
 
