@@ -4,15 +4,18 @@ import helmet from 'helmet'
 
 require('dotenv').config()
 
-const middlewares = require('./middlewares')
-const api = require('./api')
+import database from './database'
+import middlewares from './middlewares'
+
+database.init()
 
 const app = express()
 
 app.use(morgan('dev'))
 app.use(helmet())
+app.use(express.json())
 
-app.use('/api', api)
+require('./routes')(app)
 
 app.use(middlewares.notFound)
 app.use(middlewares.errorHandler)

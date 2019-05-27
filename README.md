@@ -29,9 +29,9 @@ npm run dev
 
 ## Checklist
 
-- create express server
-- create User model with email, password, clientId, location
-- create auth routes to catch data
+- ~~create express server~~
+- ~~create User model with email, password, clientId, location~~
+- ~~create auth routes to catch data~~
 - create vuejs project
 - create basic views, components and routes
 - create navbar 
