@@ -8,6 +8,10 @@ On the client side I'll use VueJs for building ui components and Phaser 3 to ren
 
 Authentication will be through jsonwebtokens.
 
+**Live demo**
+
+- [See live](https://platformer-mmo.now.sh/)
+
 ## Development
 
 Open two terminals
@@ -21,6 +25,21 @@ npm run dev
 cd client
 npm install
 npm run dev
+```
+
+## Deployment
+
+You can easily deploy the server on Heroku.
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rbjs92/platformer-mmo)
+
+For the client:
+
+```bash
+cd client
+npm install
+npm run build
+now
 ```
 
 ## License

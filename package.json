@@ -1,5 +1,6 @@
 {
   "name": "platformer-mmo",
+  "description": "prefix server for heroku deployment",
   "version": "0.0.1",
   "scripts": {
     "postinstall": "npm install --prefix server && npm start --prefix server"
