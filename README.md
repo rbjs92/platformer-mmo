@@ -42,7 +42,7 @@ npm run build
 now
 ```
 
-[See live](https://now.sh/)
+[Now.sh](https://now.sh/)
 
 ## License
 
