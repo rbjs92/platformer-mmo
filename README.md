@@ -42,6 +42,8 @@ npm run build
 now
 ```
 
+[See live](https://now.sh/)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
