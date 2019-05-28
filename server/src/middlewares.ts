@@ -15,7 +15,7 @@ export = {
       next()
     }
   },
-  
+
   isLoggedIn(req: RequestInterface, res: Response, next: any) {
     if (req.user) {
       next()

@@ -11,6 +11,7 @@ Authentication will be through jsonwebtokens.
 **Live demo**
 
 - [See live](https://platformer-mmo.now.sh/)
+- [Monitor GameServer](https://platformer-mmo.herokuapp.com/colyseus)
 
 ## Development
 
@@ -65,8 +66,8 @@ now
 - ~~handle validation~~
 - ~~setup production and deployment~~
 - ~~deploy server and client to test~~
-- create game server
-- create GameRoom and register it with custom options town, forest and fields
+- ~~create game server~~
+- ~~create GameRoom and register it with custom options town, forest and fields~~
 - create game component
 - setup phaser project
 - setup client connection

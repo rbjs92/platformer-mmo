@@ -26,6 +26,7 @@
     "typescript": "^3.4.5"
   },
   "dependencies": {
+    "@colyseus/monitor": "^0.10.0",
     "@hapi/joi": "^15.0.3",
     "bcrypt": "^3.0.6",
     "colyseus": "^0.10.7",

@@ -1,9 +1,9 @@
-import AuthController from '../controllers/AuthController'
-import UserController from '../controllers/UserController'
+import AuthController from './controllers/AuthController'
+import UserController from './controllers/UserController'
 
-import AuthControllerPolicy from '../policies/AuthControllerPolicy'
+import AuthControllerPolicy from './policies/AuthControllerPolicy'
 
-const { onTokenSetUser, isLoggedIn } = require('../middlewares')
+const { onTokenSetUser, isLoggedIn } = require('./middlewares')
 
 export = (app: any) => {
   app.use(onTokenSetUser)
