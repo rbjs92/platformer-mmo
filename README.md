@@ -39,6 +39,7 @@ For the client:
 cd client
 npm install
 npm run build
+cd dist
 now
 ```
 
