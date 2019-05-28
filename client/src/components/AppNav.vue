@@ -2,6 +2,7 @@
   <v-toolbar dark color="blue darken-3">
     <v-toolbar-items>
       <v-btn to="/" flat>Home</v-btn>
+      <v-btn to="/play" v-if="$store.state.userIsLoggedIn" flat>Play</v-btn>
       <v-btn to="/profile" v-if="$store.state.userIsLoggedIn" flat>Profile</v-btn>
     </v-toolbar-items>
     <v-spacer></v-spacer>

@@ -68,12 +68,12 @@ now
 - ~~deploy server and client to test~~
 - ~~create game server~~
 - ~~create GameRoom and register it with custom options town, forest and fields~~
-- create game component
-- setup phaser project
-- setup client connection
-- fetch player location from the http api and join room based on location
-- setup game server authentication
-- check user location in db before joining room
+- ~~create game component~~
+- ~~setup phaser project~~
+- ~~setup client connection~~
+- ~~fetch player location from the http api and join room based on location~~
+- ~~setup game server authentication~~
+- ~~check user location in db before joining room~~
 - deploy server and client to test
 - create different game states based on map
 - create physics engine

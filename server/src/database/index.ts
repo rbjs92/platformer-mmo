@@ -1,6 +1,7 @@
 import mongoose from 'mongoose'
 
 mongoose.set('useCreateIndex', true) // removes deprecation warning
+mongoose.set('useFindAndModify', false)
 
 const db = process.env.MONGO_DB
 
