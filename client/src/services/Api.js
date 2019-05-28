@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export default () => {
   return axios.create({
-    baseURL: `http://localhost:2567`,
+    baseURL: `https://platformer-mmo.herokuapp.com`,
     headers: {
       Authorization: `Bearer ${localStorage.token}`,
     },

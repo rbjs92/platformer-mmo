@@ -2,7 +2,7 @@
   "name": "platformer-mmo",
   "version": "0.0.1",
   "scripts": {
-    "start": "cd server/dist && node index.js"
+    "postinstall": "npm install --prefix server"
   },
   "engines": {
     "node": "10.15.2",
