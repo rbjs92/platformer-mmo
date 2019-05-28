@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec ts-node ./src/index.ts",
-    "start": "tsc && node ./dist/index.js"
+    "build": "tsc",
+    "start": "node ./dist/index.js",
+    "clean": "rm -rf ./dist"
   },
   "keywords": [],
   "author": "",
@@ -34,9 +36,5 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.5.11",
     "morgan": "^1.9.1"
-  },
-  "engines": {
-    "node": "10.15.2",
-    "npm": "6.9.0"
   }
 }

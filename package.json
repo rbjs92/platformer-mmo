@@ -1,0 +1,11 @@
+{
+  "name": "platformer-mmo",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "cd server/dist && node index.js"
+  },
+  "engines": {
+    "node": "10.15.2",
+    "npm": "6.9.0"
+  }
+}
