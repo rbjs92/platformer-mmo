@@ -41,8 +41,8 @@ gameServer.register('fields-room', GameRoom, { map: 'fields' })
 app.use('/colyseus', monitor(gameServer))
 
 // custom middleware
-app.use(middlewares.notFound)
-app.use(middlewares.errorHandler)
+// app.use(middlewares.notFound)
+// app.use(middlewares.errorHandler)
 
 const port = Number(process.env.PORT || 2567)
 gameServer.onShutdown(() => console.log('GameServer shutting down!'))

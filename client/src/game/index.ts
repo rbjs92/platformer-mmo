@@ -6,6 +6,16 @@ import { ForestScene } from './ForestScene'
 
 import UserService from '../services/UserService'
 
+// const isProduction = process.env.NODE_ENV === 'production'
+
+// let API_URL: string
+
+// if (isProduction) {
+//   API_URL = `wss://platformer-mmo.herokuapp.com`
+// } else {
+//   API_URL = `ws://localhost:2567`
+// }
+
 class LobbyScene extends Phaser.Scene {
   room: Room
   client: Client
@@ -46,7 +56,7 @@ class LobbyScene extends Phaser.Scene {
   }
 
   connectTown(token: string) {
-    this.client = new Client('ws://localhost:2567')
+    this.client = new Client(`wss://platformer-mmo.herokuapp.com`)
     this.client.onOpen.add(() => {
       console.log('client opened')
       this.room = this.client.join('town-room', { token })
@@ -62,7 +72,7 @@ class LobbyScene extends Phaser.Scene {
   }
 
   connectForest(token: string) {
-    this.client = new Client('ws://localhost:2567')
+    this.client = new Client(`wss://platformer-mmo.herokuapp.com`)
     this.client.onOpen.add(() => {
       console.log('client opened')
       this.room = this.client.join('forest-room', { token })
