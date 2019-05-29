@@ -10,7 +10,6 @@ Authentication will be through jsonwebtokens.
 
 **Live demo**
 
-- [See live](https://platformer-mmo.now.sh/)
 - [Monitor GameServer](https://platformer-mmo.herokuapp.com/colyseus)
 
 ## Development
@@ -22,29 +21,14 @@ cd server
 npm install
 npm run dev
 ```
+- [Monitor Server](http://localhost:2567/colyseus)
+
 ```bash
 cd client
 npm install
 npm run dev
 ```
-
-## Deployment
-
-You can easily deploy the server on Heroku.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/rbjs92/platformer-mmo)
-
-For the client:
-
-```bash
-cd client
-npm install
-npm run build
-cd dist
-now
-```
-
-[Now.sh](https://now.sh/)
+- [Client](http://localhost:1234)
 
 ## License
 
@@ -64,8 +48,6 @@ now
 - ~~handle register request on the server~~
 - ~~handle login request on the server~~
 - ~~handle validation~~
-- ~~setup production and deployment~~
-- ~~deploy server and client to test~~
 - ~~create game server~~
 - ~~create GameRoom and register it with custom options town, forest and fields~~
 - ~~create game component~~
@@ -74,11 +56,14 @@ now
 - ~~fetch player location from the http api and join room based on location~~
 - ~~setup game server authentication~~
 - ~~check user location in db before joining room~~
-- deploy server and client to test
-- create different game states based on map
+- ~~create different game states based on map~~
 - create physics engine
 - create player state and physical body on the server
 - create phaser sprite and setup keyboard input events
 - create player animations
 - setup portals to travel map
-- deploy server and client to test
+- interaction ui and canvas
+- create block
+- create mini map
+- create enemy
+- setup custom ui

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="game-container"></div>
-    <profile></profile>
+    <!-- <profile></profile> -->
   </div>
 </template>
 

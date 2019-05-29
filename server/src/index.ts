@@ -35,7 +35,6 @@ const gameServer = new Server({
 // gamerooms
 gameServer.register('town-room', GameRoom, { map: 'town' })
 gameServer.register('forest-room', GameRoom, { map: 'forest' })
-gameServer.register('fields-room', GameRoom, { map: 'fields' })
 
 // gameserver webmonitor
 app.use('/colyseus', monitor(gameServer))

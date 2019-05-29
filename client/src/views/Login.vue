@@ -2,6 +2,7 @@
   <v-container fluid>
     <v-layout justify-center>
       <v-flex xs12 sm8 md6 lg4>
+        <v-alert v-model="errorState" dismissible type="error">{{ error }}</v-alert>
         <Card title="Login">
           <v-card-text>
             <v-form>
@@ -34,6 +35,7 @@ export default {
       email: '',
       password: '',
       error: null,
+      errorState: false,
     }
   },
   methods: {
@@ -48,6 +50,7 @@ export default {
         this.$router.push('/play')
       } catch (err) {
         this.error = err.response.data.error
+        this.errorState = true
       }
     },
   },

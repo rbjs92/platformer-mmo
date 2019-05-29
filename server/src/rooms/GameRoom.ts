@@ -28,13 +28,18 @@ class ForestState extends Schema {
 }
 
 export class GameRoom extends Room {
+
+  maxClients = 4
+
   onInit(options: any) {
     console.log('onInit', options)
 
-    this.maxClients = 4
-
     if (options.map === 'town') this.setState(new TownState())
     if (options.map === 'forest') this.setState(new ForestState())
+  }
+
+  requestJoin(options: any, isNew: boolean) {
+    return options.create ? isNew : true
   }
 
   async onAuth(options: any) {
