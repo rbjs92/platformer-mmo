@@ -49,7 +49,7 @@ export default {
           password: this.password,
         })
         localStorage.token = await response.data.token
-        this.$router.push('/profile')
+        this.$router.push('/play')
         this.$store.dispatch('userIsLoggedIn', true)
       } catch (error) {
         this.error = error.response.data.error

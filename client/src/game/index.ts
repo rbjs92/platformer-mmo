@@ -6,9 +6,7 @@ import { ForestScene } from './ForestScene'
 
 import UserService from '../services/UserService'
 
-var game: any = null
-
-export class LobbyScene extends Phaser.Scene {
+class LobbyScene extends Phaser.Scene {
   room: Room
   client: Client
   token: string
@@ -92,10 +90,5 @@ const config = {
 }
 
 export function connect() {
-  game = new Phaser.Game(config)
-}
-
-export function disconnect() {
-  game.destroy()
-  game = null
+  new Phaser.Game(config)
 }

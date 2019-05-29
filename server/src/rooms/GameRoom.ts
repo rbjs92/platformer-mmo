@@ -57,12 +57,12 @@ export class GameRoom extends Room {
 
   onMessage(client: Client, data: any) {
     if (data.portal) this.onPortal(client, data)
-    client.close()
   }
 
   async onPortal(client: Client, data: any) {
     try {
       await User.findOneAndUpdate({ email: client.auth.email }, { $set: { location: data.portal } }, { new: true })
+      client.close()
     } catch (error) {
       throw new Error(error)
     }

@@ -2,22 +2,23 @@
   <v-container fluid>
     <v-layout justify-center>
       <v-flex xs12 sm8 md6 lg4>
-        <Card title="Profile">
-          <v-card-text>
+        <v-card>
+          <v-toolbar color="pink" dark>
+            <v-toolbar-title>Profile</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-btn icon>
+              <v-icon>close</v-icon>
+            </v-btn>
+          </v-toolbar>
+          <v-list two-line>
             <v-list-tile>
               <v-list-tile-content>
-                <v-list-tile-title>Username</v-list-tile-title>
-                <v-list-tile-sub-title>{{ username }}</v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>Location</v-list-tile-title>
+                <v-list-tile-title>{{ username }}</v-list-tile-title>
                 <v-list-tile-sub-title>{{ location }}</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
-          </v-card-text>
-        </Card>
+          </v-list>
+        </v-card>
       </v-flex>
     </v-layout>
   </v-container>
@@ -25,7 +26,6 @@
 
 <script>
 import UserService from '../services/UserService'
-import Card from '../components/Card'
 export default {
   data: () => ({
     username: null,
@@ -35,9 +35,6 @@ export default {
     const user = (await UserService.profile()).data
     this.username = user.username
     this.location = user.location
-  },
-  components: {
-    Card,
   },
 }
 </script>

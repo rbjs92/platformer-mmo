@@ -1,22 +1,20 @@
 <template>
-  <div id="game-container"></div>
+  <div>
+    <div id="game-container"></div>
+    <profile></profile>
+  </div>
 </template>
 
 <script>
+import Profile from './Profile'
 export default {
   name: 'game',
-  data() {
-    return {
-      game: null,
-    }
+  components: {
+    Profile,
   },
   async mounted() {
-    this.game = await import('../game/index')
-    this.game.connect()
-  },
-  destroyed() {
-    this.game.disconnect()
-    console.log('game is destroyed')
+    const game = await import('../game/index')
+    game.connect()
   },
 }
 </script>

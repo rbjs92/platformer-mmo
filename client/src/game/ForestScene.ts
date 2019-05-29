@@ -1,6 +1,5 @@
 import { Room, Client } from 'colyseus.js'
 
-let sky: any
 let players: any = {}
 
 export interface ForestSceneInterface {
@@ -19,7 +18,6 @@ export class ForestScene extends Phaser.Scene {
   }
 
   init(options: ForestSceneInterface) {
-    // store the data that is passed from main_scene to this instance
     this.client = options.client
     this.room = options.room
   }

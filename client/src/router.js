@@ -3,14 +3,13 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Login from './views/Login.vue'
 import Register from './views/Register.vue'
-import Profile from './views/Profile.vue'
 import Play from './views/Play.vue'
 
 Vue.use(Router)
 
 function isNotLoggedIn(to, from, next) {
   if (localStorage.token) {
-    next('/profile')
+    next('/play')
   } else {
     next()
   }
@@ -30,12 +29,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
-    },
-    {
-      path: '/profile',
-      name: 'profile',
-      component: Profile,
-      beforeEnter: isLoggedIn,
     },
     {
       path: '/play',

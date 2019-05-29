@@ -45,7 +45,7 @@ export default {
         })
         localStorage.token = response.data.token
         this.$store.dispatch('userIsLoggedIn', true)
-        this.$router.push('/profile')
+        this.$router.push('/play')
       } catch (err) {
         this.error = err.response.data.error
       }
