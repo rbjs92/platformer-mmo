@@ -34,11 +34,11 @@ gameServer.register('town-room', GameRoom, { map: 'town' })
 gameServer.register('forest-room', GameRoom, { map: 'forest' })
 gameServer.register('fields-room', GameRoom, { map: 'fields' })
 
-// gameserver webmonitor
-app.use('/colyseus', monitor(gameServer))
-
 // custom routes
 require('./routes')(app)
+
+// gameserver webmonitor
+app.use('/colyseus', monitor(gameServer))
 
 // custom middleware
 app.use(middlewares.notFound)
