@@ -24,6 +24,9 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
+// custom routes
+require('./routes')(app)
+
 // merge servers
 const gameServer = new Server({
   server: createServer(app),
@@ -33,9 +36,6 @@ const gameServer = new Server({
 gameServer.register('town-room', GameRoom, { map: 'town' })
 gameServer.register('forest-room', GameRoom, { map: 'forest' })
 gameServer.register('fields-room', GameRoom, { map: 'fields' })
-
-// custom routes
-require('./routes')(app)
 
 // gameserver webmonitor
 app.use('/colyseus', monitor(gameServer))
