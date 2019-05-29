@@ -24,9 +24,6 @@ app.use(helmet())
 app.use(cors())
 app.use(express.json())
 
-// custom routes
-require('./routes')(app)
-
 // merge servers
 const gameServer = new Server({
   server: createServer(app),
@@ -40,9 +37,12 @@ gameServer.register('fields-room', GameRoom, { map: 'fields' })
 // gameserver webmonitor
 app.use('/colyseus', monitor(gameServer))
 
+// custom routes
+require('./routes')(app)
+
 // custom middleware
-// app.use(middlewares.notFound)
-// app.use(middlewares.errorHandler)
+app.use(middlewares.notFound)
+app.use(middlewares.errorHandler)
 
 const port = Number(process.env.PORT || 2567)
 gameServer.onShutdown(() => console.log('GameServer shutting down!'))
