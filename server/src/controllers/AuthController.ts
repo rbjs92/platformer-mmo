@@ -71,4 +71,14 @@ export = {
       res.status(401).send({ error: 'Please try again' })
     }
   },
+
+  async token(req: Request, res: Response) {
+    try {
+      const token = req.body.token
+      const user = await jwt.verify(token, process.env.JWT_SECRET || 'secret')
+      if (user) res.send({ token: true })
+    } catch (error) {
+      res.status(500).send({ token: false })
+    }
+  },
 }

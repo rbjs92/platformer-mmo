@@ -9,5 +9,6 @@ export = (app: any) => {
   app.use(onTokenSetUser)
   app.post('/api/auth/register', AuthControllerPolicy.register, AuthController.register)
   app.post('/api/auth/login', AuthController.login)
+  app.post('/api/auth/token', AuthController.token)
   app.get('/api/user/profile', isLoggedIn, UserController.profile)
 }

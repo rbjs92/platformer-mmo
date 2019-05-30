@@ -1,9 +1,10 @@
 import { Request, Response } from 'express'
 import { RequestInterface } from './interfaces/RequestInterface'
 import jwt from 'jsonwebtoken'
+import { NextFunction } from 'connect';
 
 export = {
-  async onTokenSetUser(req: RequestInterface, res: Response, next: any) {
+  async onTokenSetUser(req: RequestInterface, res: Response, next: NextFunction) {
     try {
       const token = await req.get('authorization').split(' ')[1]
       if (token) {
@@ -16,7 +17,7 @@ export = {
     }
   },
 
-  isLoggedIn(req: RequestInterface, res: Response, next: any) {
+  isLoggedIn(req: RequestInterface, res: Response, next: NextFunction) {
     if (req.user) {
       next()
     } else {
@@ -24,13 +25,13 @@ export = {
     }
   },
 
-  notFound(req: Request, res: Response, next: any) {
+  notFound(req: Request, res: Response, next: NextFunction) {
     res.status(404)
     const error = new Error(`Not Found - ${req.originalUrl}`)
     next(error)
   },
 
-  errorHandler(err: any, req: Request, res: Response) {
+  errorHandler(err: Error, req: Request, res: Response) {
     const statusCode = res.statusCode !== 200 ? res.statusCode : 500
     res.status(statusCode)
     res.json({

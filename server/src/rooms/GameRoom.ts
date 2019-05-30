@@ -2,40 +2,25 @@ import { Room, Client } from 'colyseus'
 import { Schema, MapSchema, type } from '@colyseus/schema'
 import jwt from 'jsonwebtoken'
 
+import { Engine } from 'matter-js'
+
 import User from '../models/User'
 
-class Player extends Schema {
-  @type('number') x: number
-  @type('number') y: number
-}
-
-class TownState extends Schema {
-  @type({ map: Player })
-  players = new MapSchema()
-
-  onUpdate() {
-    console.log('this is town state')
-  }
-}
-
-class ForestState extends Schema {
-  @type({ map: Player })
-  players = new MapSchema()
-
-  onUpdate() {
-    console.log('this is forest state')
-  }
-}
+import { TownState } from './TownState'
+import { ForestState } from './ForestState'
 
 export class GameRoom extends Room {
-
   maxClients = 4
 
   onInit(options: any) {
-    console.log('onInit', options)
-
     if (options.map === 'town') this.setState(new TownState())
     if (options.map === 'forest') this.setState(new ForestState())
+
+    this.setPatchRate(1000 / 60) // 60/s update from server to clients
+    this.setSimulationInterval(() => this.startEngine()) // start engine and game loop
+
+    this.state.createWorld()
+    this.state.createEnvironment()
   }
 
   requestJoin(options: any, isNew: boolean) {
@@ -52,16 +37,23 @@ export class GameRoom extends Room {
   }
 
   onJoin(client: Client, options: any, auth: any) {
-    // console.log('onJoin', client.sessionId, auth)
-    this.state.onUpdate()
+    console.log('onJoin', client.sessionId)
+    this.state.createPlayer(client.sessionId)
   }
 
   onLeave(client: Client) {
-    // console.log('onLeave', client.sessionId)
+    console.log('onLeave', client.sessionId)
+    this.state.removePlayer(client.sessionId)
   }
 
   onMessage(client: Client, data: any) {
+    if (data.action) this.state.handlePlayerInput(client.sessionId, data.action)
     if (data.portal) this.onPortal(client, data)
+  }
+
+  startEngine() {
+    Engine.update(this.state.engine, 1000 / 60)
+    this.state.onUpdate()
   }
 
   async onPortal(client: Client, data: any) {
