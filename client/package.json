@@ -19,7 +19,7 @@
     "vue-template-compiler": "^2.6.10"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "colyseus.js": "^0.10.8",
     "phaser": "^3.17.0",
     "vue": "^2.6.10",
